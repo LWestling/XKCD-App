@@ -1,0 +1,6 @@
+<div style="text-align:center">
+  <div style="margin: 5px;">
+    <img src="{{ getComicImageSrc() }}" (load)="setImageLoaded(true)"/>
+  </div>
+  <mat-spinner style="margin: 0 auto;" *ngIf="showSpinner === true"></mat-spinner>
+</div>

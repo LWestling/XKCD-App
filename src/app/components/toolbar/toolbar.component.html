@@ -1,0 +1,20 @@
+<mat-toolbar [class.mat-elevation-z2]="!isActive">
+  <button mat-icon-button (click)="goToPreviousPage()" aria-label="Go to previous page">
+    <mat-icon svgIcon="previous-page"></mat-icon>
+  </button>
+
+  <span class="space-fill"></span>
+  <span *ngIf="getComicPromise() | async as comic">{{ comic.title }}</span>
+  <span class="space-fill"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="toolbarDropdown" aria-label="Open menu dropdown">
+    <mat-icon svgIcon="menu-icon"></mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #toolbarDropdown>
+  <button mat-menu-item (click)="generateId()" uiSref="random" [uiParams]="{ id: randomId }">
+    <mat-icon svgIcon="random-icon"></mat-icon>
+    <span>Random Comic</span>
+  </button>
+</mat-menu>
